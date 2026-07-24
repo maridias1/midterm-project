@@ -21,11 +21,11 @@ def main():
         if choice == "1":
             calculator.calculator()
         elif choice == "2":
-            guess_number.guess_number()  # შეამოწმე guess_number.py-ში ფუნქციას რა ჰქვია
+            guess_number.guess_number()  
         elif choice == "3":
-            hangman.hangman()            # შეამოწმე hangman.py-ში ფუნქციას რა ჰქვია
+            hangman.hangman()            
         elif choice == "4":
-            translator.translator()      # შეამოწმე translator.py-ში ფუნქციას რა ჰქვია
+            translator.translator()      
         elif choice == "5":
             print("\nპროგრამა დასრულდა. ნახვამდის! 👋")
             break
