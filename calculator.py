@@ -1,19 +1,11 @@
-# (დეფ ქალქულეითორ - შევქმენით ფუნქცია)
 def calculator():
-    print("\n--- 🧮 კალკულატორი ---")
+    print("\n--- 🧮 Calculator ---")
     
-    # (თრაი ბლოკი - შეცდომებისგან დასაცავად)
     try:
-        # (ინფუთით იღებს რიცხვს და ფლოუთით გადაყავს ათწილადში)
-        num1 = float(input("შეიყვანეთ პირველი რიცხვი: "))
-        
-        # (სთრიფით აშორებს ზედმეტ დაშორებებს)
-        operator = input("აირჩიეთ ოპერაცია (+, -, *, /): ").strip()
-        
-        # (მეორე რიცხვის მიღება და ფლოუთში გადაყვანა)
-        num2 = float(input("შეიყვანეთ მეორე რიცხვი: "))
+        num1 = float(input("Enter the first number: "))
+        operator = input("Select an operation (+, -, *, /): ").strip()
+        num2 = float(input("Enter the second number: "))
 
-        # (იფ-ელიფ ბლოკით ვამოწმებთ მოქმედებას)
         if operator == "+":
             result = num1 + num2
         elif operator == "-":
@@ -21,23 +13,19 @@ def calculator():
         elif operator == "*":
             result = num1 * num2
         elif operator == "/":
-            # (შემოწმება: ნულზე გაყოფა არ შეიძლება)
             if num2 == 0:
-                print("❌ ნულზე გაყოფა შეუძლებელია!")
-                return  # (რითერნით წყვეტს ფუნქციას)
+                print("❌ Cannot divide by zero!")
+                return
             result = num1 / num2
         else:
-            print("❌ არასწორი ოპერატორი!")
+            print("❌ Invalid operator!")
             return
 
-        # (ფრინთით გამოგვაქვს შედეგი ეფ-სთრინგ ფორმატში)
-        print(f"✅ შედეგი: {result}")
+        print(f"✅ Result: {result}")
 
-    # (ექსეფთ ველიუ ერორ - იჭერს ასოების შეყვანის შეცდომას)
     except ValueError:
-        print("❌ შეიყვანეთ მხოლოდ რიცხვები!")
+        print("❌ Please enter numbers only!")
 
 
-# (იფ ნეიმ უდრის მეინ - ფუნქციის ავტომატური გაშვება)
 if __name__ == "__main__":
     calculator()
