@@ -1,49 +1,49 @@
 def atm():
-    balance = 100.0  # საწყისი ბალანსი
+    balance = 100.0
 
     while True:
-        print("\n=== 🏧 ბანკომატი ===")
-        print("1. ბალანსის შემოწმება")
-        print("2. თანხის შეტანა")
-        print("3. თანხის გამოტანა")
-        print("4. მთავარ მენიუში დაბრუნება")
+        print("\n=== 🏧 ATM ===")
+        print("1. Check Balance")
+        print("2. Deposit")
+        print("3. Withdraw")
+        print("4. Return to Main Menu")
 
-        choice = input("აირჩიეთ ოპერაცია (1-4): ").strip()
+        choice = input("Select an operation (1-4): ").strip()
 
         if choice == "1":
-            print(f"\n💰 თქვენი მიმდინარე ბალანსია: {balance:.2f} ₾")
+            print(f"\n💰 Your current balance is: {balance:.2f} ₾")
 
         elif choice == "2":
             try:
-                amount = float(input("\nშეიყვანეთ შესატანი თანხა: "))
+                amount = float(input("\nEnter deposit amount: "))
                 if amount > 0:
                     balance += amount
                     print(
-                        f"✅ წარმატებით დაემატა {amount:.2f} ₾. ახალი ბალანსი: {balance:.2f} ₾"
+                        f"✅ Successfully deposited {amount:.2f} ₾. New balance: {balance:.2f} ₾"
                     )
                 else:
-                    print("❌ თანხა უნდა იყოს დადებითი რიცხვი!")
+                    print("❌ Amount must be a positive number!")
             except ValueError:
-                print("❌ გთხოვთ შეიყვანოთ სწორი ციფრი!")
+                print("❌ Please enter a valid number!")
 
         elif choice == "3":
             try:
-                amount = float(input("\nშეიყვანეთ გამოსატანი თანხა: "))
+                amount = float(input("\nEnter withdrawal amount: "))
                 if amount > balance:
-                    print("❌ ანგარიშზე არ არის საკმარისი თანხა!")
+                    print("❌ Insufficient funds!")
                 elif amount <= 0:
-                    print("❌ თანხა უნდა იყოს დადებითი რიცხვი!")
+                    print("❌ Amount must be a positive number!")
                 else:
                     balance -= amount
                     print(
-                        f"✅ გამოტანილია {amount:.2f} ₾. დარჩენილი ბალანსი: {balance:.2f} ₾"
+                        f"✅ Withdrawn {amount:.2f} ₾. Remaining balance: {balance:.2f} ₾"
                     )
             except ValueError:
-                print("❌ გთხოვთ შეიყვანოთ სწორი ციფრი!")
+                print("❌ Please enter a valid number!")
 
         elif choice == "4":
-            print("\nბანკომატით მომსახურება დასრულებულია. 👋")
+            print("\nATM session ended. 👋")
             break
 
         else:
-            print("❌ არასწორი არჩევანი! გთხოვთ აირჩიოთ 1-დან 4-მდე.")
+            print("❌ Invalid choice! Please select between 1 and 4.")
