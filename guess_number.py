@@ -1,39 +1,29 @@
-# (იმფორთ რენდომ - შემომაქვს შემთხვევითი რიცხვების ბიბლიოთეკა)
 import random
 
 
-# (დეფ გეს ნამბერ - ფუნქციის შექმნა)
 def guess_number():
-    print("\n--- 🎲 გამოიცანი რიცხვი ---")
+    print("\n--- 🎲 Guess the Number ---")
     
-    # (რენდომის რენდინთით ირჩევს ფარულ რიცხვს 1-დან 100-მდე)
     target = random.randint(1, 100)
-    
-    # (ათემფთს - მცდელობების მთვლელი)
     attempts = 0
 
-    # (უაილ თრუ - უსასრულო ციკლი)
     while True:
-        # (თრაი-ექსეფთ შეცდომების დასაჭერად)
         try:
-            # (ინთით ტექსტი გადაყავს მთელ რიცხვში)
-            guess = int(input("შეიყვანეთ რიცხვი (1-100): "))
-            attempts += 1  # (მცდელობას ემატება 1)
+            guess = int(input("Enter a number (1-100): "))
+            attempts += 1
 
-            # (იფ-ელიფ-ელს შემოწმებები)
             if guess < target:
-                print("📈 უფრო მაღალი!")
+                print("📈 Higher!")
             elif guess > target:
-                print("📉 უფრო დაბალი!")
+                print("📉 Lower!")
             else:
                 print(
-                    f"🎉 გამოიცანით! რიცხვი იყო {target}. მცდელობები: {attempts}"
+                    f"🎉 You guessed it! The number was {target}. Attempts: {attempts}"
                 )
-                break  # (ბრეიქით ციკლი წყდება)
+                break
         
-        # (ექსეფთ ველიუ ერორი)
         except ValueError:
-            print("❌ შეიყვანეთ მთელი რიცხვი!")
+            print("❌ Please enter a whole number!")
 
 
 if __name__ == "__main__":
