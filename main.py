@@ -8,17 +8,17 @@ import atm
 def main():
     while True:
         print("\n" + "=" * 35)
-        print("       მთავარი მენიუ - პროექტი    ")
+        print("       Main Menu - Project       ")
         print("=" * 35)
-        print("1. კალკულატორი")
-        print("2. გამოიცანი რიცხვი")
-        print("3. ჰენგმენი (ჩამოხრჩობანა)")
-        print("4. თარგმანი")
-        print("5. ბანკომატი")
-        print("6. გამოსვლა")
+        print("1. Calculator")
+        print("2. Guess the Number")
+        print("3. Hangman")
+        print("4. Translator")
+        print("5. ATM")
+        print("6. Exit")
         print("=" * 35)
 
-        choice = input("აირჩიეთ ოპერაცია (1-6): ").strip()
+        choice = input("Select an operation (1-6): ").strip()
 
         if choice == "1":
             calculator.calculator()
@@ -31,10 +31,10 @@ def main():
         elif choice == "5":
             atm.atm()
         elif choice == "6":
-            print("\nპროგრამა დასრულდა. ნახვამდის! 👋")
+            print("\nProgram ended. Goodbye! 👋")
             break
         else:
-            print("\n❌ არასწორი არჩევანი! გთხოვთ აირჩიოთ 1-დან 6-მდე.")
+            print("\n❌ Invalid choice! Please select between 1 and 6.")
 
 
 if __name__ == "__main__":
