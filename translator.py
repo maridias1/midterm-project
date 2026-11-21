@@ -1,48 +1,38 @@
-# (იმფორთ ო-ეს - ფაილურ სისტემასთან სამუშაოდ)
 import os
 
 
-# (დეფ თრანსლეითორ - ფუნქცია)
 def translator():
-    print("\n--- 📖 თარჯიმანი ---")
+    print("\n--- 📖 Translator ---")
     file_name = "dictionary.txt"
 
-    # (ო-ეს ბიბლიოთეკის ექსისტს ფუნქციით ამოწმებს არსებობს თუ არა ფაილი)
     if not os.path.exists(file_name):
-        # (უიზ ოფენ 'w' რეჟიმით - ქმნის ფაილს)
         with open(file_name, "w", encoding="utf-8") as f:
-            f.write("apple:ვაშლი\nbook:წიგნი\ncode:კოდი\n")
+            f.write("apple:a round fruit with red or green skin\nbook:a written or printed work consisting of pages\ncode:program instructions written in a programming language\n")
 
-    # (ინფუთით იღებს სიტყვას, სთრიფით და ლოუერით ამუშავებს)
     word_to_find = (
-        input("შეიყვანეთ ინგლისური სიტყვა სათარგმნად: ").strip().lower()
+        input("Enter a word to translate: ").strip().lower()
     )
 
-    # (დიქშენარი - ცარიელი ლექსიკონი)
     dictionary = {}
     
-    # (უიზ ოფენ 'r' რეჟიმით - კითხულობს ფაილს)
     with open(file_name, "r", encoding="utf-8") as f:
         for line in f:
             if ":" in line:
-                # (სფლითით ყოფს ინგლისურ და ქართულ ნაწილებად)
-                eng, geo = line.strip().split(":")
-                dictionary[eng] = geo
+                word, meaning = line.strip().split(":", 1)
+                dictionary[word] = meaning
 
-    # (ამოწმებს არის თუ არა სიტყვა ლექსიკონში)
     if word_to_find in dictionary:
-        print(f"✅ თარგმანი: {dictionary[word_to_find]}")
+        print(f"✅ Translation: {dictionary[word_to_find]}")
     else:
-        print("❌ სიტყვა ვერ მოიძებნა.")
+        print("❌ Word not found.")
         add_new = (
-            input("გსურთ ამ სიტყვის დამატება? (კი/არა): ").strip().lower()
+            input("Would you like to add this word? (yes/no): ").strip().lower()
         )
-        if add_new == "კი":
-            translation = input(f"შეიყვანეთ '{word_to_find}'-ის თარგმანი: ")
-            # (უიზ ოფენ 'a' რეჟიმით - ამატებს ფაილის ბოლოში)
+        if add_new == "yes":
+            translation = input(f"Enter the translation/meaning for '{word_to_find}': ")
             with open(file_name, "a", encoding="utf-8") as f:
                 f.write(f"{word_to_find}:{translation}\n")
-            print("✅ დაემატა ფაილში!")
+            print("✅ Added to the file!")
 
 
 if __name__ == "__main__":
